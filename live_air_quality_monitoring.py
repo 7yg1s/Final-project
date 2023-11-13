@@ -2,6 +2,8 @@ import requests
 import folium
 
 #API connection and retrieval of a data from a website:
+
+
 def vilnius_city():
     vilnius = 'Vilnius'
     api_key = '9720d7c113b9da2456b31dfb4d8f07c05a0cbb65'
@@ -42,33 +44,35 @@ def klaipeda_city():
 
 # Create a map with live data:
 
-live_map = folium.Map(tiles='CartoDB positron', location=(55.11201074940712, 24.065172740215825), zoom_start=8)
+def live_map_creation():
+    live_map = folium.Map(tiles='CartoDB positron', location=(55.11201074940712, 24.065172740215825), zoom_start=8)
 
-popup_vilnius = folium.Popup(vilnius_city(), max_width=500)
-popup_kaunas = folium.Popup(kaunas_city(), max_width=500)
-popup_klaipeda = folium.Popup(klaipeda_city(), max_width=500)
+    popup_vilnius = folium.Popup(vilnius_city(), max_width=500)
+    popup_kaunas = folium.Popup(kaunas_city(), max_width=500)
+    popup_klaipeda = folium.Popup(klaipeda_city(), max_width=500)
 
-folium.Marker(
-    location=[54.68906449, 25.27499907],
-    tooltip='Click here for more info!',
-    popup= popup_vilnius,
-    icon=folium.Icon(icon='cloud'),
-).add_to(live_map)
+    folium.Marker(
+        location=[54.68906449, 25.27499907],
+        tooltip='Click here for more info!',
+        popup= popup_vilnius,
+        icon=folium.Icon(icon='cloud'),
+    ).add_to(live_map)
 
-folium.Marker(
-    location=[54.91064874, 23.89693172],
-    tooltip='Click me!',
-    popup= popup_kaunas,
-    icon=folium.Icon(icon='cloud'),
-).add_to(live_map)
+    folium.Marker(
+        location=[54.91064874, 23.89693172],
+        tooltip='Click me!',
+        popup= popup_kaunas,
+        icon=folium.Icon(icon='cloud'),
+    ).add_to(live_map)
 
-folium.Marker(
-    location=[55.72646869, 21.12991317],
-    tooltip='Click me!',
-    popup= popup_klaipeda,
-    icon=folium.Icon(icon='cloud'),
-).add_to(live_map)
+    folium.Marker(
+        location=[55.72646869, 21.12991317],
+        tooltip='Click me!',
+        popup= popup_klaipeda,
+        icon=folium.Icon(icon='cloud'),
+    ).add_to(live_map)
 
-live_map.save('live_map.html')
+    live_map.save('C:/Users/Vartotojas/Documents/GitHub/Final-project/html/live_map.html')
+    print("Live map html successfully created and saved")
 
-
+live_map_creation()

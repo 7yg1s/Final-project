@@ -70,14 +70,22 @@ for tr in tbody.find_elements(By.XPATH, '//tr'):
     data.append(row)
 
 ### list of column names
-columns = ['Nr', 'ISO3', 'Country', 'Agglomeration', 'Year', 'PM25', 'PM10', 'NO2', 'Reference', 'Database_version']
+columns = ['Nr', 'ISO3', 'Country', 'City', 'Year', 'PM2.5', 'PM10', 'NO2', 'Reference', 'Database_version']
 
 ### create dataframe
 df = pd.DataFrame(data, columns=columns)
 # print(df)
+df = df.drop(df.index[0:1])
+# df = df.dtypes
+# print(df)
+
+
+
 
 ### create csv file and save the date
 df.to_csv('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/who_data_100.csv', index=False)
+print("csv file successfully saved")
 
 time.sleep(1)
 driver.close()
+
