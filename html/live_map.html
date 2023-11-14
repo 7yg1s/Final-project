@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b04f0f983bec18b78b685a0b4a19829c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b04f0f983bec18b78b685a0b4a19829c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b04f0f983bec18b78b685a0b4a19829c = L.map(
+                "map_b04f0f983bec18b78b685a0b4a19829c",
+                {
+                    center: [55.11201074940712, 24.065172740215825],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a70e3803c734f389d7933ee3a9ee5c4c = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+                tile_layer_a70e3803c734f389d7933ee3a9ee5c4c.addTo(map_b04f0f983bec18b78b685a0b4a19829c);
+    
+            var marker_3cac72b469204065523b3fc47da53a6c = L.marker(
+                [54.68906449, 25.27499907],
+                {}
+            ).addTo(map_b04f0f983bec18b78b685a0b4a19829c);
+        
+    
+            var icon_364d4c125ebdfca39a62748354c21aaa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3cac72b469204065523b3fc47da53a6c.setIcon(icon_364d4c125ebdfca39a62748354c21aaa);
+        
+    
+        var popup_7a0cc01f3f01c3b23f0e751835fe3716 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_df309ef68f2603704c56287600824525 = $(`<div id="html_df309ef68f2603704c56287600824525" style="width: 100.0%; height: 100.0%;">Vilnius Air Quality Data: AQI=6; PM2.5=12; PM10=4; O3=6.4</div>`)[0];
+                popup_7a0cc01f3f01c3b23f0e751835fe3716.setContent(html_df309ef68f2603704c56287600824525);
+            
+        
+
+        marker_3cac72b469204065523b3fc47da53a6c.bindPopup(popup_7a0cc01f3f01c3b23f0e751835fe3716)
+        ;
+
+        
+    
+    
+            marker_3cac72b469204065523b3fc47da53a6c.bindTooltip(
+                `<div>
+                     Click here for more info!
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f5e420bc526ce42d5505f08fb3c31a86 = L.marker(
+                [54.91064874, 23.89693172],
+                {}
+            ).addTo(map_b04f0f983bec18b78b685a0b4a19829c);
+        
+    
+            var icon_186281313680b6a6cfd03e95e029b1a2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f5e420bc526ce42d5505f08fb3c31a86.setIcon(icon_186281313680b6a6cfd03e95e029b1a2);
+        
+    
+        var popup_8881f8265cf264019a4e4e51c0505c63 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_447b47e5a77c6160a821d46c486eb3a5 = $(`<div id="html_447b47e5a77c6160a821d46c486eb3a5" style="width: 100.0%; height: 100.0%;">Kaunas Air Quality Data: AQI=21; PM2.5=10; PM10=15; O3=20.7</div>`)[0];
+                popup_8881f8265cf264019a4e4e51c0505c63.setContent(html_447b47e5a77c6160a821d46c486eb3a5);
+            
+        
+
+        marker_f5e420bc526ce42d5505f08fb3c31a86.bindPopup(popup_8881f8265cf264019a4e4e51c0505c63)
+        ;
+
+        
+    
+    
+            marker_f5e420bc526ce42d5505f08fb3c31a86.bindTooltip(
+                `<div>
+                     Click me!
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f5f571a8113e14642bdf7ce38590c229 = L.marker(
+                [55.72646869, 21.12991317],
+                {}
+            ).addTo(map_b04f0f983bec18b78b685a0b4a19829c);
+        
+    
+            var icon_4a72c2d36ec563ec5644da1c93855667 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f5f571a8113e14642bdf7ce38590c229.setIcon(icon_4a72c2d36ec563ec5644da1c93855667);
+        
+    
+        var popup_e7e27631b4e5ad41e67001e1b2ca1438 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_c37da8f7cfada53e0b6db845b572a35e = $(`<div id="html_c37da8f7cfada53e0b6db845b572a35e" style="width: 100.0%; height: 100.0%;">Klaipėda Air Quality Data: AQI=14; PM2.5=6; PM10=3; O3=14.4</div>`)[0];
+                popup_e7e27631b4e5ad41e67001e1b2ca1438.setContent(html_c37da8f7cfada53e0b6db845b572a35e);
+            
+        
+
+        marker_f5f571a8113e14642bdf7ce38590c229.bindPopup(popup_e7e27631b4e5ad41e67001e1b2ca1438)
+        ;
+
+        
+    
+    
+            marker_f5f571a8113e14642bdf7ce38590c229.bindTooltip(
+                `<div>
+                     Click me!
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
