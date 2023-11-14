@@ -1,8 +1,7 @@
 import requests
 import folium
-
-from final_project import save_address
-
+import time
+from users_for_saving_data import save_address
 
 def live_air_quality_monitoring_scraper():
     #API connection and retrieval of a data from a website:
@@ -113,4 +112,9 @@ def live_air_quality_monitoring_scraper():
         live_map.save(f'{save_address}html/live_map.html')
         print("Live map html successfully created and saved")
 
-    # live_map_creation()
+    live_map_creation()
+
+def map_update():
+    while True:
+        live_air_quality_monitoring_scraper()
+        time.sleep(10800)

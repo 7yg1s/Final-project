@@ -2,32 +2,13 @@ import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
-from live_air_quality_monitoring import live_air_quality_monitoring_scraper
+from live_air_quality_monitoring import map_update
 from live_data_scraper import live_data_scraping
-
-#Map data update:
-def live_map_data():
-    while True:
-        live_air_quality_monitoring_scraper()
-        time.sleep(10800)
-live_map_data()
-
-#Update live_data_scraper.py
-def live_data_scraper_update():
-    while True:
-        live_data_scraping()
-        time.sleep(86400)
-live_data_scraper_update()
-
-
-#Variables for saving data locally for different users:
-zygimantas_save = 'C:/Users/zygim/Documents/GitHub/Final-project/'
-nerijus_save = 'C:/Users/Vartotojas/Documents/GitHub/Final-project/'
-save_address = zygimantas_save
+from users_for_saving_data import save_address
 
 #Read WHO data:
 df = pd.read_csv(f'{save_address}csv/who_data_100.csv')
-
+print(df)
 
 ### instead of Null values we interpolate some missing data
 df['PM2.5'].interpolate(method='linear', inplace=True, limit_direction='backward')
@@ -143,7 +124,7 @@ filter_kaunas = live_df.loc[live_df['Miestas']=='Kaunas']
 filter_klaipeda = live_df.loc[live_df['Miestas']=='Klaipėda']
 # print(filter_klaipeda)
 
-def show_air_quality__by_city():
+def show_air_quality_by_city():
     # Adding x variable for X-Axis "Date" values
     plt.figure(figsize=(14, 12))
     x = filter_kaunas['Date']
@@ -171,7 +152,12 @@ def show_air_quality__by_city():
     plt.title('Air quality measures in major cities', fontsize=20)
     plt.xticks(x, rotation=90)
     plt.grid()
-    plt.savefig(f'{save_address}jpeg/air_quality_by_city')
+    plt.savefig(f'{save_address}jpeg/recent_air_quality_data_major_cities')
     plt.show()
-# show_air_quality__by_city()
+# show_air_quality_by_city()
 
+#Update AQI data on daily basis:
+live_data_scraping
+
+#Updating map:
+map_update()

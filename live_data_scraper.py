@@ -4,7 +4,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
 from csv import writer
-from final_project import save_address
+from users_for_saving_data import save_address
+
 def live_data_scraping():
     timestamp = time.time()
     date = datetime.fromtimestamp(timestamp)
@@ -84,5 +85,3 @@ def live_data_scraping():
         weather_quality.to_csv(f'{save_address}csv/live_data1.csv', mode='a', index=False, header=False)
         print('Nauji duomenys sekmingai prideti prie "live_data" failo')
 
-
-# live_data_scraping()

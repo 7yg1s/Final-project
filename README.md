@@ -33,8 +33,11 @@ Steps:
    * Adjusted the data types. 
    * Interpolated the missing data.
    * Removed unnecessary columns from our data files.
+
 2. Calculations and visualisations:
    * We calculated Lithuania's yearly average air pollution of PM2.5, PM10, NO2 using the data from WHO database and visualised it.
         ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/air_stat_by_year.png)
-
+   * Recent air pollution in major cities of Lithuania:
+        ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/air_quality_by_city.png)
+   *
 
