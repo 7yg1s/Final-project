@@ -8,6 +8,7 @@ from live_air_quality_monitoring import map_update
 from live_data_scraper import live_data_scraping
 from users_for_saving_data import save_address
 
+### creating log file
 logging.basicConfig(filename=f'{save_address}log/scraper.log', level=logging.DEBUG, format='%(asctime)s - %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S')
 
