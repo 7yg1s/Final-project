@@ -1,4 +1,6 @@
 import datetime
+import logging
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
@@ -6,9 +8,12 @@ from live_air_quality_monitoring import map_update
 from live_data_scraper import live_data_scraping
 from users_for_saving_data import save_address
 
-#Read WHO data:
+logging.basicConfig(filename=f'{save_address}log/scraper.log', level=logging.DEBUG, format='%(asctime)s - %(message)s',
+                    datefmt='%d-%b-%y %H:%M:%S')
+
+# Read WHO data:
 df = pd.read_csv(f'{save_address}csv/who_data_100.csv')
-print(df)
+# print(df)
 
 ### instead of Null values we interpolate some missing data
 df['PM2.5'].interpolate(method='linear', inplace=True, limit_direction='backward')
@@ -31,11 +36,12 @@ df['PM10'] = df['PM10'].astype(int)
 df['NO2'] = df['NO2'].astype(int)
 df['Country'] = df['Country'].astype(str)
 df['City'] = df['City'].astype(str)
-# df['Year'] = pd.to_datetime(df['Year']).dt.strftime('%Y%')
-# df=df.dtypes
+df['Year'] = df['Year'].astype('int32')
+df['Year'] = pd.to_datetime(df.Year, format='%Y')
+df['Year'] = df['Year'].dt.strftime('%Y')
 # print(df.dtypes)
 
-avg_all = df[['NO2','PM10', 'PM2.5']].mean().round(2)
+avg_all = df[['NO2', 'PM10', 'PM2.5']].mean().round(2)
 # print(f"Bendras visu matavimu vidurkis (μg/m3) : \n{avg_all} ")
 
 avg_year = df.groupby('Year', as_index=False)[['PM2.5', 'PM10', 'NO2']].mean().round(2)
@@ -53,10 +59,27 @@ avg_city_PM10 = df.groupby('City', as_index=False)[['PM10']].mean().round(2)
 avg_city_NO2 = df.groupby('City', as_index=False)[['NO2']].mean().round(2)
 # print(avg_city_PM25)
 
-avg_year_max = avg_year.max()
-avg_year_min = avg_year.min()
-# print(avg_year_max)
-# print(avg_city.max())
+### finding highest value points
+highest_value_pm25 = np.argmax(avg_year['PM2.5'])
+lowest_value_pm25 = np.argmin(avg_year['PM2.5'])
+
+highest_value_pm10 = np.argmax(avg_year['PM10'])
+lowest_value_pm10 = np.argmin(avg_year['PM10'])
+
+highest_value_no2 = np.argmax(avg_year['NO2'])
+lowest_value_no2 = np.argmin(avg_year['NO2'])
+
+### Calculating min and max values
+min_value_pm25 = np.min(avg_year['PM2.5'])
+max_value_pm25 = np.max(avg_year['PM2.5'])
+
+min_value_pm10 = np.min(avg_year['PM10'])
+max_value_pm10 = np.max(avg_year['PM10'])
+
+min_value_no2 = np.min(avg_year['NO2'])
+max_value_no2 = np.max(avg_year['NO2'])
+
+# print(max_value_pm25)
 
 def show_air_quality_statistics_by_year():
     # Adding x variable for X-Axis "Year" values
@@ -65,9 +88,16 @@ def show_air_quality_statistics_by_year():
     plt.plot(x, avg_year['PM2.5'], label='PM2.5', color='green')
     plt.plot(x, avg_year['PM10'], label='PM10', color='blue')
     plt.plot(x, avg_year['NO2'], label='NO2', color='red')
-    # plt.axhline(y = 20 ,linestyle = 'dashed', color='green')
-    # plt.axhline(y=50, linestyle='dashed', color='blue')
-    # plt.axhline(y=40, linestyle='dashed', color='red')
+
+    ### Showing highest values on visualisation
+    plt.plot(highest_value_pm25, max_value_pm25, marker='8', markersize=10, color='black', label='Highest')
+    plt.plot(lowest_value_pm25, min_value_pm25, marker='8', markersize=10, color='black', label='Lowest')
+
+    plt.plot(highest_value_pm10, max_value_pm10, marker='8', markersize=10, color='black')
+    plt.plot(lowest_value_pm10, min_value_pm10, marker='8', markersize=10, color='black')
+
+    plt.plot(highest_value_no2, max_value_no2, marker='8', markersize=10, color='black')
+    plt.plot(lowest_value_no2, min_value_no2, marker='8', markersize=10, color='black')
 
     # add legend
     plt.legend(title='Air quality measures')
@@ -80,6 +110,8 @@ def show_air_quality_statistics_by_year():
     plt.grid()
     plt.savefig(f'{save_address}jpeg/air_stat_by_year')
     plt.show()
+
+
 # show_air_quality_statistics_by_year()
 
 def show_city_PM25_average():
@@ -92,6 +124,8 @@ def show_city_PM25_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_pm25_avg')
     plt.show()
+
+
 # show_city_PM25_average()
 
 def show_city_PM10_average():
@@ -104,6 +138,8 @@ def show_city_PM10_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_PM10_avg')
     plt.show()
+
+
 # show_city_PM10_average()
 
 def show_city_NO2_average():
@@ -116,13 +152,17 @@ def show_city_NO2_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_NO2_avg')
     plt.show()
+
+
 # show_city_NO2_average()
 
 live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
-filter_vilnius = live_df.loc[live_df['Miestas']=='Vilnius']
-filter_kaunas = live_df.loc[live_df['Miestas']=='Kaunas']
-filter_klaipeda = live_df.loc[live_df['Miestas']=='Klaipėda']
+filter_vilnius = live_df.loc[live_df['Miestas'] == 'Vilnius']
+filter_kaunas = live_df.loc[live_df['Miestas'] == 'Kaunas']
+filter_klaipeda = live_df.loc[live_df['Miestas'] == 'Klaipėda']
+
+
 # print(filter_klaipeda)
 
 def show_air_quality_by_city():
@@ -134,15 +174,14 @@ def show_air_quality_by_city():
     plt.plot(x, filter_kaunas['O3'], label='O3 Kaunas', color='red')
 
     x = filter_vilnius['Date']
-    plt.plot(x, filter_vilnius['PM2.5'], label='PM2.5 Vilnius',linestyle=(0, (5,10)), color='green')
-    plt.plot(x, filter_vilnius['PM10'], label='PM10 Vilnius',linestyle=(0, (5,10)), color='blue')
-    plt.plot(x, filter_vilnius['O3'], label='O3 Vilnius',linestyle=(0, (5,10)), color='red')
+    plt.plot(x, filter_vilnius['PM2.5'], label='PM2.5 Vilnius', linestyle=(0, (5, 10)), color='green')
+    plt.plot(x, filter_vilnius['PM10'], label='PM10 Vilnius', linestyle=(0, (5, 10)), color='blue')
+    plt.plot(x, filter_vilnius['O3'], label='O3 Vilnius', linestyle=(0, (5, 10)), color='red')
 
     x = filter_klaipeda['Date']
     plt.plot(x, filter_klaipeda['PM2.5'], label='PM2.5 Klaipėda', linestyle=(0, (1, 1)), color='green')
     plt.plot(x, filter_klaipeda['PM10'], label='PM10 Klaipėda', linestyle=(0, (1, 1)), color='blue')
     plt.plot(x, filter_klaipeda['O3'], label='O3 Klaipėda', linestyle=(0, (1, 1)), color='red')
-
 
     # add legend
     plt.legend(title='Air quality measures')
@@ -155,10 +194,12 @@ def show_air_quality_by_city():
     plt.grid()
     plt.savefig(f'{save_address}jpeg/recent_air_quality_data_major_cities')
     plt.show()
+
+
 # show_air_quality_by_city()
 
-#Update AQI data on daily basis:
-live_data_scraping
+# Update AQI data on daily basis:
+# live_data_scraping()
 
-#Updating map:
+# Updating map:
 map_update()
