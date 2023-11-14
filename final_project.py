@@ -92,7 +92,7 @@ def show_city_PM25_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_pm25_avg')
     plt.show()
-show_city_PM25_average()
+# show_city_PM25_average()
 
 def show_city_PM10_average():
     x = avg_city_PM10['City']
@@ -104,7 +104,7 @@ def show_city_PM10_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_PM10_avg')
     plt.show()
-show_city_PM10_average()
+# show_city_PM10_average()
 
 def show_city_NO2_average():
     x = avg_city_NO2['City']
@@ -116,7 +116,7 @@ def show_city_NO2_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_NO2_avg')
     plt.show()
-show_city_NO2_average()
+# show_city_NO2_average()
 
 live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
