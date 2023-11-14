@@ -81,8 +81,8 @@ def live_data_scraping():
     if df['Date'].str.contains(str_date).any():
         print("Siandienos duomenys jau buvo issaugoti")
     else:
-        weather_quality.to_csv(f'{save_address}csv/live_data.csv', mode='a', index=False, header=False)
+        weather_quality.to_csv(f'{save_address}csv/live_data1.csv', mode='a', index=False, header=False)
         print('Nauji duomenys sekmingai prideti prie "live_data" failo')
 
 
-live_data_scraping()
+# live_data_scraping()

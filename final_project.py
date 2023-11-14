@@ -1,12 +1,31 @@
 import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
+import time
+from live_air_quality_monitoring import live_air_quality_monitoring_scraper
+from live_data_scraper import live_data_scraping
 
+#Map data update:
+def live_map_data():
+    while True:
+        live_air_quality_monitoring_scraper()
+        time.sleep(10800)
+live_map_data()
+
+#Update live_data_scraper.py
+def live_data_scraper_update():
+    while True:
+        live_data_scraping()
+        time.sleep(86400)
+live_data_scraper_update()
+
+
+#Variables for saving data locally for different users:
 zygimantas_save = 'C:/Users/zygim/Documents/GitHub/Final-project/'
 nerijus_save = 'C:/Users/Vartotojas/Documents/GitHub/Final-project/'
-
 save_address = zygimantas_save
 
+#Read WHO data:
 df = pd.read_csv(f'{save_address}csv/who_data_100.csv')
 
 

@@ -81,8 +81,6 @@ df = df.drop(df.index[0:1])
 # print(df)
 
 
-
-
 ### create csv file and save the date
 df.to_csv(f'{save_address}csv/who_data_100.csv', index=False)
 print("csv file successfully saved")
