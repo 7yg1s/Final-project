@@ -112,7 +112,7 @@ def show_city_NO2_average():
     plt.bar(x, avg_city_NO2['NO2'], color='red')
     plt.ylabel('Value μg/m3', fontsize=18)
     plt.title('Yearly average NO2 by city', fontsize=18)
-    plt.xticks(x, rotation=60)
+    plt.xticks(x, rotation=50)
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_NO2_avg')
     plt.show()
