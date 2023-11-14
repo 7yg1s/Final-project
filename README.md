@@ -37,7 +37,11 @@ Steps:
 2. Calculations and visualisations:
    * We calculated Lithuania's yearly average air pollution of PM2.5, PM10, NO2 using the data from WHO database and visualised it.
         ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/air_stat_by_year.png)
-   * Recent air pollution in major cities of Lithuania:
+   * Comparison of air pollution in Lithuania's major cities:
         ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/air_quality_by_city.png)
-   *
+   * Air polution by particulate matter:
+     * PM2.5 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_pm25_avg.png)
+     * PM10 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_PM10_avg.png)
+     * NO2 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_NO2_avg.png)
+   
 
