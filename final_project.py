@@ -23,6 +23,7 @@ df = df.replace('Kėdainiai', 'Kedainiai')
 df = df.replace('Mažeikiai', 'Mazeikiai')
 df = df.replace('Naujoji Akmenė', 'Naujoji Akmene')
 df = df.replace('Panevėžys', 'Panevezys')
+df = df.replace('Naujoji Akmene', 'N. Akmene')
 
 ### assigning prefered data types to column values
 df['PM2.5'] = df['PM2.5'].astype(int)
@@ -83,7 +84,7 @@ def show_air_quality_statistics_by_year():
 
 def show_city_PM25_average():
     x = avg_city_PM25['City']
-    plt.figure(figsize=(12, 10))
+    plt.figure(figsize=(12, 12))
     plt.bar(x, avg_city_PM25['PM2.5'], color='green')
     plt.ylabel('Value μg/m3', fontsize=18)
     plt.title('Yearly average PM2.5 by city', fontsize=18)
@@ -91,11 +92,11 @@ def show_city_PM25_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_pm25_avg')
     plt.show()
-# show_city_PM25_average()
+show_city_PM25_average()
 
 def show_city_PM10_average():
     x = avg_city_PM10['City']
-    plt.figure(figsize=(12, 18))
+    plt.figure(figsize=(12, 12))
     plt.bar(x, avg_city_PM10['PM10'], color='blue')
     plt.ylabel('Value μg/m3', fontsize=18)
     plt.title('Yearly average PM10 by city', fontsize=18)
@@ -103,11 +104,11 @@ def show_city_PM10_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_PM10_avg')
     plt.show()
-# show_city_PM10_average()
+show_city_PM10_average()
 
 def show_city_NO2_average():
     x = avg_city_NO2['City']
-    plt.figure(figsize=(12, 16))
+    plt.figure(figsize=(12, 12))
     plt.bar(x, avg_city_NO2['NO2'], color='red')
     plt.ylabel('Value μg/m3', fontsize=18)
     plt.title('Yearly average NO2 by city', fontsize=18)
@@ -115,7 +116,7 @@ def show_city_NO2_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_NO2_avg')
     plt.show()
-# show_city_NO2_average()
+show_city_NO2_average()
 
 live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
