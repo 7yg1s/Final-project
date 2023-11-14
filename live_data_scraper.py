@@ -4,7 +4,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
 from csv import writer
-
+from final_project import save_address
 def live_data_scraping():
     timestamp = time.time()
     date = datetime.fromtimestamp(timestamp)
@@ -69,19 +69,19 @@ def live_data_scraping():
     weather_quality.reset_index()
     # print(weather_quality)
 
-    # weather_quality.to_csv('C:/Users/Vartotojas/Documents/GitHub/Final-projectcsv/live_data.csv', index=False)
+    # weather_quality.to_csv(f'{save_address}live_data.csv', index=False)
 
-    df = pd.read_csv('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/live_data.csv')
+    df = pd.read_csv(f'{save_address}csv/live_data.csv')
 
     ### reading existing csv file and its data
-    with open('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/live_data.csv', 'r') as fp:
+    with open(f'{save_address}csv/live_data.csv', 'r') as fp:
         existing_csv = fp.read()
 
     ### check if todays data is in the csv file if not, new data is appended
     if df['Date'].str.contains(str_date).any():
         print("Siandienos duomenys jau buvo issaugoti")
     else:
-        weather_quality.to_csv('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/live_data.csv', mode='a', index=False, header=False)
+        weather_quality.to_csv(f'{save_address}csv/live_data.csv', mode='a', index=False, header=False)
         print('Nauji duomenys sekmingai prideti prie "live_data" failo')
 
 

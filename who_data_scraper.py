@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
+from final_project import  save_address
 
 ### using selenium library we create a connection to a website
 driver_path = "chromedriver.exe"
@@ -83,7 +84,7 @@ df = df.drop(df.index[0:1])
 
 
 ### create csv file and save the date
-df.to_csv('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/who_data_100.csv', index=False)
+df.to_csv(f'{save_address}csv/who_data_100.csv', index=False)
 print("csv file successfully saved")
 
 time.sleep(1)

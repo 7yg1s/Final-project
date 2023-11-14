@@ -2,8 +2,13 @@ import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 
+zygimantas_save = 'C:/Users/zygim/Documents/GitHub/Final-project/'
+nerijus_save = 'C:/Users/Vartotojas/Documents/GitHub/Final-project/'
 
-df = pd.read_csv('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/who_data_100.csv')
+save_address = zygimantas_save
+
+df = pd.read_csv(f'{save_address}csv/who_data_100.csv')
+
 
 ### instead of Null values we interpolate some missing data
 df['PM2.5'].interpolate(method='linear', inplace=True, limit_direction='backward')
@@ -72,7 +77,7 @@ def show_air_quality_statistics_by_year():
     plt.title('Air quality by year', fontsize=20)
     plt.xticks(x, rotation=90)
     plt.grid()
-    plt.savefig('C:/Users/Vartotojas/Documents/GitHub/Final-project/jpeg/air_stat_by_year')
+    plt.savefig(f'{save_address}jpeg/air_stat_by_year')
     plt.show()
 # show_air_quality_statistics_by_year()
 
@@ -84,7 +89,7 @@ def show_city_PM25_average():
     plt.title('Yearly average PM2.5 by city', fontsize=18)
     plt.xticks(x, rotation=60)
     plt.rcParams.update({'font.size': 22})
-    plt.savefig('C:/Users/Vartotojas/Documents/GitHub/Final-project/jpeg/city_pm25_avg')
+    plt.savefig(f'{save_address}jpeg/city_pm25_avg')
     plt.show()
 # show_city_PM25_average()
 
@@ -96,7 +101,7 @@ def show_city_PM10_average():
     plt.title('Yearly average PM10 by city', fontsize=18)
     plt.xticks(x, rotation=60)
     plt.rcParams.update({'font.size': 22})
-    plt.savefig('C:/Users/Vartotojas/Documents/GitHub/Final-project/jpeg/city_PM10_avg')
+    plt.savefig(f'{save_address}jpeg/city_PM10_avg')
     plt.show()
 # show_city_PM10_average()
 
@@ -108,11 +113,11 @@ def show_city_NO2_average():
     plt.title('Yearly average NO2 by city', fontsize=18)
     plt.xticks(x, rotation=60)
     plt.rcParams.update({'font.size': 22})
-    plt.savefig('C:/Users/Vartotojas/Documents/GitHub/Final-project/jpeg/city_NO2_avg')
+    plt.savefig(f'{save_address}jpeg/city_NO2_avg')
     plt.show()
 # show_city_NO2_average()
 
-live_df = pd.read_csv('C:/Users/Vartotojas/Documents/GitHub/Final-project/csv/live_data.csv')
+live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
 filter_vilnius = live_df.loc[live_df['Miestas']=='Vilnius']
 filter_kaunas = live_df.loc[live_df['Miestas']=='Kaunas']
@@ -147,7 +152,7 @@ def show_air_quality__by_city():
     plt.title('Air quality measures in major cities', fontsize=20)
     plt.xticks(x, rotation=90)
     plt.grid()
-    plt.savefig('C:/Users/Vartotojas/Documents/GitHub/Final-project/jpeg/air_quality_by_city')
+    plt.savefig(f'{save_address}jpeg/air_quality_by_city')
     plt.show()
 # show_air_quality__by_city()
 
