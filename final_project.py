@@ -60,7 +60,7 @@ avg_city_PM10 = df.groupby('City', as_index=False)[['PM10']].mean().round(2)
 avg_city_NO2 = df.groupby('City', as_index=False)[['NO2']].mean().round(2)
 # print(avg_city_PM25)
 
-### finding highest value points
+### finding highest  and lowest value points
 highest_value_pm25 = np.argmax(avg_year['PM2.5'])
 lowest_value_pm25 = np.argmin(avg_year['PM2.5'])
 
@@ -90,7 +90,7 @@ def show_air_quality_statistics_by_year():
     plt.plot(x, avg_year['PM10'], label='PM10', color='blue')
     plt.plot(x, avg_year['NO2'], label='NO2', color='red')
 
-    ### Showing highest values on visualisation
+    ### Showing highest and lowest values on visualisation
     plt.plot(highest_value_pm25, max_value_pm25, marker='8', markersize=10, color='black', label='Highest')
     plt.plot(lowest_value_pm25, min_value_pm25, marker='8', markersize=10, color='black', label='Lowest')
 
