@@ -93,8 +93,8 @@ def show_air_quality_statistics_by_year():
     plt.plot(x, avg_year['NO2'], label='NO2', color='red')
 
     ### Showing highest and lowest values on visualisation
-    plt.plot(highest_value_pm25, max_value_pm25, marker=7, markersize=14, color='magenta', label='Highest')
-    plt.plot(lowest_value_pm25, min_value_pm25, marker=6, markersize=14, color='cyan', label='Lowest')
+    plt.plot(highest_value_pm25, max_value_pm25, marker=7, markersize=14, color='magenta', label='Highest value')
+    plt.plot(lowest_value_pm25, min_value_pm25, marker=6, markersize=14, color='cyan', label='Lowest value')
 
     plt.plot(highest_value_pm10, max_value_pm10, marker=7, markersize=14, color='magenta')
     plt.plot(lowest_value_pm10, min_value_pm10, marker=6, markersize=14, color='cyan')
@@ -108,7 +108,7 @@ def show_air_quality_statistics_by_year():
     # adding x and y axes with labels and a title
     plt.ylabel('Value μg/m3', fontsize=18)
     plt.xlabel('Year', fontsize=18)
-    plt.title('Air quality by year', fontsize=20)
+    plt.title('Air quality by year', fontsize=22)
     plt.xticks(x, rotation=90)
     plt.grid()
     plt.savefig(f'{save_address}jpeg/air_stat_by_year')
