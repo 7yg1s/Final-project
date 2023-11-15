@@ -1,5 +1,6 @@
 # Air particulate matter monitoring and analysis.
 Created by: Žygimantas Rėkus and Nerijus Čiuželis, 2023-11-16
+![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/img.png)
 
 This is the final project for Data analytics course at Vilnius Coding School. The goal is to get all the necessary data from a web, clean it and analyse. Check how air quality is changing according years, region and compare statistics to live data from different cities in Lithuania. For this project we used Python language with some of its libraries, CSV files for saving data and PowerBi for visualisations.
 

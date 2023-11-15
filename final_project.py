@@ -115,7 +115,7 @@ def show_air_quality_statistics_by_year():
     plt.show()
 
 
-show_air_quality_statistics_by_year()
+# show_air_quality_statistics_by_year()
 
 def show_city_PM25_average():
     x = avg_city_PM25['City']
