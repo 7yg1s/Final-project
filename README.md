@@ -48,7 +48,7 @@ Steps:
 
     To see the live AQI data of Lithuania please click on the map below:      
 
-    [![Lithuania's AQI map.](https://github.com/7yg1s/Final-project/blob/main/html/map_pic.png)](https://nbviewer.org/github/7yg1s/Final-project/blob/main/html/lt_live_map.html)
+    [![Lithuania's AQI map.](https://github.com/7yg1s/Final-project/blob/main/html/map_pic.png)](https://nbviewer.org/github/7yg1s/Final-project/blob/main/html/live_map.html)
 
 ## Conclusion:
 
