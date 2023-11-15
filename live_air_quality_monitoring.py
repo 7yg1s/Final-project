@@ -109,7 +109,7 @@ def live_air_quality_monitoring_scraper():
             icon=folium.Icon(icon='cloud'),
         ).add_to(live_map)
 
-        live_map.save(f'{save_address}html/live_map.html')
+        live_map.save(f'{save_address}html/lt_live_map.html')
         print("Live map html successfully created and saved")
 
     live_map_creation()
