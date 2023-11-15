@@ -45,12 +45,13 @@ Steps:
         * NO2 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_NO2_avg.png)
    
 3. Live AQI monitoring data map:
+
     To see the live AQI data of Lithuania please click on the map below:      
 
     [![Lithuania's AQI map.](https://github.com/7yg1s/Final-project/blob/main/html/map_pic.png)](https://nbviewer.org/github/7yg1s/Final-project/blob/main/html/live_map.html)
 
 ## Conclusion:
 
-We've compared the weather quality data based on the data from WHO. By the point 2.1 you can see air pollution data by PM2.5, PM110 and NO2 during the period from 2010 and 2019.
+We've compared the weather quality data based on the data from WHO. By the point 2.i you can see air pollution data by PM2.5, PM110 and NO2 during the period from 2010 and 2019.
 We compared the air pollution data of major Lithuania's cities where you can see what are the differences between those cities.
 By 3rd point there is a map created where we can check live data of air quality in Lithuania. 
