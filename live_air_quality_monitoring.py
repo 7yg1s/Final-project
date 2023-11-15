@@ -114,7 +114,7 @@ def live_air_quality_monitoring_scraper():
 
     live_map_creation()
 
-def map_update():
-    while True:
-        live_air_quality_monitoring_scraper()
-        time.sleep(10800)
+# def map_update():
+#     while True:
+#         live_air_quality_monitoring_scraper()
+#         time.sleep(10800)

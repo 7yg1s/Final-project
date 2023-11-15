@@ -4,9 +4,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
-from live_air_quality_monitoring import map_update
+from live_air_quality_monitoring import live_air_quality_monitoring_scraper
 from live_data_scraper import live_data_scraping
 from users_for_saving_data import save_address
+import schedule
+
 
 ### creating log file
 logging.basicConfig(filename=f'{save_address}log/scraper.log', level=logging.DEBUG, format='%(asctime)s - %(message)s',
@@ -91,14 +93,14 @@ def show_air_quality_statistics_by_year():
     plt.plot(x, avg_year['NO2'], label='NO2', color='red')
 
     ### Showing highest and lowest values on visualisation
-    plt.plot(highest_value_pm25, max_value_pm25, marker='8', markersize=10, color='black', label='Highest')
-    plt.plot(lowest_value_pm25, min_value_pm25, marker='8', markersize=10, color='black', label='Lowest')
+    plt.plot(highest_value_pm25, max_value_pm25, marker=7, markersize=14, color='magenta', label='Highest')
+    plt.plot(lowest_value_pm25, min_value_pm25, marker=6, markersize=14, color='cyan', label='Lowest')
 
-    plt.plot(highest_value_pm10, max_value_pm10, marker='8', markersize=10, color='black')
-    plt.plot(lowest_value_pm10, min_value_pm10, marker='8', markersize=10, color='black')
+    plt.plot(highest_value_pm10, max_value_pm10, marker=7, markersize=14, color='magenta')
+    plt.plot(lowest_value_pm10, min_value_pm10, marker=6, markersize=14, color='cyan')
 
-    plt.plot(highest_value_no2, max_value_no2, marker='8', markersize=10, color='black')
-    plt.plot(lowest_value_no2, min_value_no2, marker='8', markersize=10, color='black')
+    plt.plot(highest_value_no2, max_value_no2, marker=7, markersize=14, color='magenta')
+    plt.plot(lowest_value_no2, min_value_no2, marker=6, markersize=14, color='cyan')
 
     # add legend
     plt.legend(title='Air quality measures')
@@ -113,7 +115,7 @@ def show_air_quality_statistics_by_year():
     plt.show()
 
 
-# show_air_quality_statistics_by_year()
+show_air_quality_statistics_by_year()
 
 def show_city_PM25_average():
     x = avg_city_PM25['City']
@@ -194,10 +196,15 @@ def show_air_quality_by_city():
     plt.show()
 
 
-show_air_quality_by_city()
+# show_air_quality_by_city()
 
 # Update AQI data on daily basis:
 # live_data_scraping()
 
 # Updating map:
-map_update()
+#
+# schedule.every(10).seconds.do(live_air_quality_monitoring_scraper)
+#
+# while True:
+#     schedule.run_pending()
+#     time.sleep(10)
