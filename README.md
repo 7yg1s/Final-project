@@ -38,7 +38,7 @@ Steps:
    1. We calculated Lithuania's yearly average air pollution of PM2.5, PM10, NO2 using the data from WHO database and visualised it.
         ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/air_stat_by_year.png)
    2. Comparison of air pollution in Lithuania's major cities:
-           ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/air_quality_by_city.png)
+           ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/recent_air_quality_data_major_cities.png)
    3. Air polution by particulate matter:
         * PM2.5 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_pm25_avg.png)
         * PM10 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_PM10_avg.png)
@@ -55,4 +55,3 @@ Steps:
 We've compared the weather quality data based on the data from WHO. By the point 2.i you can see air pollution data by PM2.5, PM110 and NO2 during the period from 2010 and 2019.
 We compared the air pollution data of major Lithuania's cities where you can see what are the differences between those cities.
 By 3rd point there is a map created where we can check live data of air quality in Lithuania.
-test
