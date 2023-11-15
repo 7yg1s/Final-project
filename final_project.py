@@ -153,17 +153,14 @@ def show_city_NO2_average():
     plt.rcParams.update({'font.size': 22})
     plt.savefig(f'{save_address}jpeg/city_NO2_avg')
     plt.show()
-
-
 # show_city_NO2_average()
 
+live_data_scraping()
 live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
 filter_vilnius = live_df.loc[live_df['Miestas'] == 'Vilnius']
 filter_kaunas = live_df.loc[live_df['Miestas'] == 'Kaunas']
 filter_klaipeda = live_df.loc[live_df['Miestas'] == 'Klaipėda']
-
-
 # print(filter_klaipeda)
 
 def show_air_quality_by_city():
@@ -197,7 +194,7 @@ def show_air_quality_by_city():
     plt.show()
 
 
-# show_air_quality_by_city()
+show_air_quality_by_city()
 
 # Update AQI data on daily basis:
 # live_data_scraping()
