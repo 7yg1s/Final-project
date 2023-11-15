@@ -155,7 +155,7 @@ def show_city_NO2_average():
     plt.show()
 # show_city_NO2_average()
 
-live_data_scraping()
+# live_data_scraping()
 live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
 filter_vilnius = live_df.loc[live_df['Miestas'] == 'Vilnius']

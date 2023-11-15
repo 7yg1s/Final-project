@@ -65,7 +65,7 @@ def live_air_quality_monitoring_scraper():
     # Create a map with live data:
 
     def live_map_creation():
-        live_map = folium.Map(tiles='CartoDB positron', location=(55.11201074940712, 24.065172740215825), zoom_start=8)
+        live_map = folium.Map(tiles='OpenStreetMap', location=(55.11201074940712, 24.065172740215825), zoom_start=8)
 
         popup_vilnius = folium.Popup(vilnius_city(), max_width=500)
         popup_kaunas = folium.Popup(kaunas_city(), max_width=500)
