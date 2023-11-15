@@ -45,7 +45,7 @@ Steps:
         * NO2 ![alt_text](https://github.com/7yg1s/Final-project/blob/main/jpeg/city_NO2_avg.png)
    
 3. Live AQI monitoring data map:
-        ![alt_text](http://localhost:63342/README.md/html/live_map.html?_ijt=vm5oduoru1iqqjfdi5eh70ufdi&_ij_reload=RELOAD_ON_SAVE)
+      Using this this <a href="https://nbviewer.org/github/7yg1s/Final-project/blob/main/html/live_map.html">link</a> you can view interactive map with the live AQI data of Lithuania.
 
 ## Conclusion:
 
