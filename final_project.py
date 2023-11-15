@@ -190,7 +190,7 @@ def show_air_quality_by_city():
     plt.ylabel('Value μg/m3', fontsize=18)
     plt.xlabel('Date', fontsize=18)
     plt.title('Air quality measures in major cities', fontsize=20)
-    plt.xticks(x, rotation=90)
+    plt.xticks(x, rotation=0)
     plt.grid()
     plt.savefig(f'{save_address}jpeg/recent_air_quality_data_major_cities')
     plt.show()
