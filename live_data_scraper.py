@@ -85,3 +85,4 @@ def live_data_scraping():
         weather_quality.to_csv(f'{save_address}csv/live_data.csv', mode='a', index=False, header=False)
         print('Nauji duomenys sekmingai prideti prie "live_data" failo')
 
+# live_data_scraping()
