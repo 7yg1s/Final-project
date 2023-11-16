@@ -198,9 +198,10 @@ def show_air_quality_by_city():
 
 show_air_quality_by_city()
 
-# Updating map:
-# schedule.every(10800).seconds.do(live_air_quality_monitoring_scraper)
-#
-# while True:
-#     schedule.run_pending()
-#     time.sleep(5)
+
+#Updating map:
+schedule.every(10800).seconds.do(live_air_quality_monitoring_scraper)
+
+while True:
+    schedule.run_pending()
+    time.sleep(5)
