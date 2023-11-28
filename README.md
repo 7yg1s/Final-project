@@ -57,3 +57,4 @@ We've compared the weather quality data based on the data from WHO. By the point
 We compared the air pollution data of major Lithuania's cities where you can see what are the differences between those cities.
 By 3rd point there is a map created where we can check live data of air quality in Lithuania.
 "# VSC_Final_project" 
+"# VSC_Final_project" 
