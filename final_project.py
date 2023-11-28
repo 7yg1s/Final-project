@@ -155,6 +155,9 @@ def show_city_NO2_average():
     plt.show()
 # show_city_NO2_average()
 
+# Update AQI data on daily basis:
+live_data_scraping()
+
 # live_data_scraping()
 live_df = pd.read_csv(f'{save_address}csv/live_data.csv')
 # print(live_df)
@@ -162,9 +165,6 @@ filter_vilnius = live_df.loc[live_df['Miestas'] == 'Vilnius']
 filter_kaunas = live_df.loc[live_df['Miestas'] == 'Kaunas']
 filter_klaipeda = live_df.loc[live_df['Miestas'] == 'Klaipėda']
 # print(filter_klaipeda)
-
-# Update AQI data on daily basis:
-live_data_scraping()
 
 def show_air_quality_by_city():
     # Adding x variable for X-Axis "Date" values
@@ -196,7 +196,7 @@ def show_air_quality_by_city():
     plt.savefig(f'{save_address}jpeg/recent_air_quality_data_major_cities')
     plt.show()
 
-show_air_quality_by_city()
+# show_air_quality_by_city()
 
 
 #Updating map:
@@ -205,3 +205,5 @@ schedule.every(10800).seconds.do(live_air_quality_monitoring_scraper)
 while True:
     schedule.run_pending()
     time.sleep(5)
+
+df['data'] = pd.to_datetime(df['data'], format='%Y-%M-%D %h:%m:%s')

@@ -1506,3 +1506,9 @@
 16-Nov-23 08:55:04 - findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\swissb.ttf', name='Swis721 BT', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
 16-Nov-23 08:55:04 - findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\greekc__.ttf', name='GreekC', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
 16-Nov-23 08:55:04 - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=20.0 to DejaVu Sans ('C:\\Users\\Vartotojas\\Documents\\GitHub\\Final-project\\venv\\Lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf') with score of 0.050000.
+16-Nov-23 09:01:41 - Starting new HTTPS connection (1): aqicn.org:443
+16-Nov-23 09:01:43 - https://aqicn.org:443 "GET /city/lithuania/kaunas-noreikiskes/ HTTP/1.1" 200 None
+16-Nov-23 09:01:43 - Starting new HTTPS connection (1): aqicn.org:443
+16-Nov-23 09:01:45 - https://aqicn.org:443 "GET /city/lithuania/klaipeda-silutes-pl. HTTP/1.1" 200 None
+16-Nov-23 09:01:45 - Starting new HTTPS connection (1): aqicn.org:443
+16-Nov-23 09:01:47 - https://aqicn.org:443 "GET /city/lithuania/vilnius-zirmunai HTTP/1.1" 200 None
